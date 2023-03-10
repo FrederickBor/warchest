@@ -2,6 +2,8 @@ name: Run Jest on Push
 
 on:
   push:
+    paths:
+      - 'src/**/*.ts'
     branches-ignore: [none]
 
 jobs:

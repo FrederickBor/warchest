@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watchAll --coverage",
+    "test:pipeline": "jest",
     "build": "tsc",
     "lint": "eslint . --ext .ts",
     "start:cli": "node ./dist/cli/index.js",

@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest --watchAll --coverage",
     "build": "tsc",
+    "lint": "eslint . --ext .ts",
     "start:cli": "node ./dist/cli/index.js",
     "dev:cli": "ts-node-dev --respawn -- src/cli/index.ts"
   },

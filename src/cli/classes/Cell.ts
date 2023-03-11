@@ -1,3 +1,5 @@
+import { type Unit } from './Units/Unit'
+
 interface CellAttributes {
   symbol: string
   controlPoint: boolean
@@ -6,28 +8,32 @@ interface CellAttributes {
 export default class Cell {
   private symbol: string
   private controlPoint: boolean
-  private empty: boolean
+  private unit: Unit | null
 
   constructor ({ symbol, controlPoint }: CellAttributes) {
     this.symbol = symbol
     this.controlPoint = controlPoint
-    this.empty = true
+    this.unit = null
   }
 
   isEmpty (): boolean {
-    return this.empty
+    return this.unit === null
   }
 
-  setOccupied (isEmpty: boolean): void {
-    this.empty = isEmpty
+  setUnit ({ unit }: { unit: Unit }): void {
+    this.unit = unit
   }
 
-  isControlPoint (): boolean {
+  unsetUnit (): void {
+    this.unit = null
+  }
+
+  isNeutralLocation (): boolean {
     return this.controlPoint
   }
 
-  setControlPoint (): void {
-    this.symbol = '@'
+  setNeutralLocation ({ symbol }: { symbol: string }): void {
+    this.symbol = symbol
     this.controlPoint = true
   }
 

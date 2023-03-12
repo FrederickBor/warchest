@@ -5,7 +5,7 @@ import { Knight } from './Units/Knight'
 import { Mercenary } from './Units/Mercenary'
 import { Royal } from './Units/Royal'
 import { type Unit } from './Units/Unit'
-import { shuffleArray } from './utilts'
+import { shuffleArray } from './utils'
 import colors from 'picocolors'
 
 interface Faction {

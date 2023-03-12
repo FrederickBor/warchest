@@ -34,31 +34,31 @@ export class Unit {
     this.aditionalMovement = aditionalMovement
   }
 
-  getName (): string {
+  public getName (): string {
     return this.name
   }
 
-  getSymbol (): string {
+  public getSymbol (): string {
     return this.symbol
   }
 
-  getTotalUnitCount (): number {
+  public getTotalUnitCount (): number {
     return this.totalUnitCount
   }
 
-  getMovementRange (): number {
+  public getMovementRange (): number {
     return this.movementRange
   }
 
-  getAttackRange (): number {
+  public getAttackRange (): number {
     return this.attackRange
   }
 
-  getNumberOfAttacks (): number {
+  public getNumberOfAttacks (): number {
     return this.numberOfAttacks
   }
 
-  getAditionalMovement (): AditionalMovement | undefined {
+  public getAditionalMovement (): AditionalMovement | undefined {
     return this.aditionalMovement
   }
 }

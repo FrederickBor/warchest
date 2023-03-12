@@ -18,41 +18,41 @@ export default class Cell {
     this.controlPoint = controlPoint
   }
 
-  isEmpty (): boolean {
+  public isEmpty (): boolean {
     return this.unit === null
   }
 
-  getUnit (): Unit | undefined {
+  public getUnit (): Unit | undefined {
     return this.unit
   }
 
-  setUnit (unit: Unit): void {
+  public setUnit (unit: Unit): void {
     this.unit = unit
   }
 
-  unsetUnit (): void {
+  public unsetUnit (): void {
     this.unit = undefined
   }
 
-  isNeutralLocation (): boolean {
+  public isNeutralLocation (): boolean {
     return this.controlPoint
   }
 
-  setNeutralLocation (controllerSymbol?: string): void {
+  public setNeutralLocation (controllerSymbol?: string): void {
     this.symbol = CONTROL_POINT_SYMBOL
     this.controllerSymbol = controllerSymbol
     this.controlPoint = true
   }
 
-  takeControlPoint (player: Player): void {
+  public takeControlPoint (player: Player): void {
     this.controllerSymbol = player.getFaction().symbol
   }
 
-  getControllerSymbol (): string | undefined {
+  public getControllerSymbol (): string | undefined {
     return this.controllerSymbol
   }
 
-  toString (): string {
+  public toString (): string {
     return this.unit
       ? this.unit.getSymbol()
       : this.controllerSymbol

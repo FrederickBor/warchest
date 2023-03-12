@@ -2,7 +2,7 @@ import { AVAILABLE_ACTIONS, AVAILABLE_UNITS, ROYAL_UNIT_SYMBOL } from '../../con
 import Board, { type BoardParameters } from './Board'
 import type Player from './Player'
 import { type Unit } from './Units/Unit'
-import { shuffleArray } from './utilts'
+import { shuffleArray } from './utils'
 
 interface GameAttributes {
   playerOne: Player

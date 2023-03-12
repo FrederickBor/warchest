@@ -3,9 +3,10 @@ export const CROW_FACTION_SYMBOL = 'C'
 export const EMPTY_CELL_SYMBOL = '·'
 export const CONTROL_POINT_SYMBOL = '@'
 
-export const BOARD_9X9 = {
+const BOARD_9X9 = {
   width: 9,
   height: 9,
+  leftControlMarkers: 4,
   neutralLocations: [
     { x: 'a', y: 2, assignedTo: CROW_FACTION_SYMBOL },
     { x: 'a', y: 6, assignedTo: CROW_FACTION_SYMBOL },
@@ -20,9 +21,10 @@ export const BOARD_9X9 = {
   ]
 }
 
-export const BOARD_5X5 = {
+const BOARD_5X5 = {
   width: 5,
   height: 5,
+  leftControlMarkers: 3,
   neutralLocations: [
     { x: 'a', y: 2, assignedTo: CROW_FACTION_SYMBOL },
     { x: 'b', y: 0 },
@@ -33,37 +35,61 @@ export const BOARD_5X5 = {
   ]
 }
 
-export enum AVAILABLE_UNITS {
-  Knight,
-  Berserker,
-  Cavalry,
-  Mercenary
+export const BOARDS = {
+  '5X5': BOARD_5X5,
+  '9X9': BOARD_9X9
 }
 
-export const AVAILABLE_ACTIONS = {
+export enum AVAILABLE_ACTIONS {
+  PLACE,
+  INITIATIVE,
+  RECRUIT,
+  MOVE,
+  ATTACK,
+  CONTROL,
+  FORFEIT
+}
+
+export const AVAILABLE_ACTIONS_DESCRIPTION = {
   // PLACEMENT ACTIONS
-  PLACE: {
-    description: 'Place a unit on the board'
+  [AVAILABLE_ACTIONS.PLACE]: {
+    description: 'Place a unit on the board',
+    value: 'PLACE'
   },
   // DISCARD COIN FACEDOWN ACTIONS
-  INITIATIVE: {
-    description: 'Take the initiative for next turn'
+  [AVAILABLE_ACTIONS.INITIATIVE]: {
+    description: 'Take the initiative for next turn',
+    value: 'INITIATIVE'
   },
-  RECRUIT: {
-    description: 'Recruit a unit from the supply'
+  [AVAILABLE_ACTIONS.RECRUIT]: {
+    description: 'Recruit a unit from the supply',
+    value: 'RECRUIT'
   },
   // DISCARD COIN FACEUP ACTIONS
-  MOVE: {
-    description: 'Move a unit on the board'
+  [AVAILABLE_ACTIONS.MOVE]: {
+    description: 'Move a unit on the board',
+    value: 'MOVE'
   },
-  ATTACK: {
-    description: 'Attack a unit on the board'
+  [AVAILABLE_ACTIONS.ATTACK]: {
+    description: 'Attack a unit on the board',
+    value: 'ATTACK'
   },
-  CONTROL: {
-    description: 'Control a neutral location'
+  [AVAILABLE_ACTIONS.CONTROL]: {
+    description: 'Control a neutral location',
+    value: 'CONTROL'
   },
   // OTHER ACTIONS
-  FORFEIT: {
-    description: 'Forfeit the game'
+  [AVAILABLE_ACTIONS.FORFEIT]: {
+    description: 'Forfeit the game',
+    value: 'FORFEIT'
   }
 }
+
+export enum AVAILABLE_UNITS {
+  Knight = 'K',
+  Berserker = 'B',
+  Cavalry = 'Y',
+  Mercenary = 'M'
+}
+
+export const ROYAL_UNIT_SYMBOL = 'R'

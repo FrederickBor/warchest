@@ -1,8 +1,9 @@
-import { PlayableUnit } from './PlayableUnit'
+import { AVAILABLE_UNITS } from '../../../consts'
+import { Unit } from './Unit'
 
-export class Mercenary extends PlayableUnit {
+export class Mercenary extends Unit {
   constructor () {
-    super({ name: 'Mercenary', symbol: 'M', totalUnitCount: 5 })
+    super({ name: 'Mercenary', symbol: AVAILABLE_UNITS.Mercenary, totalUnitCount: 5, movementRange: 1, attackRange: 1, numberOfAttacks: 1 })
   }
 
   attack (): void {
@@ -10,10 +11,6 @@ export class Mercenary extends PlayableUnit {
   }
 
   move (): void {
-    throw new Error('Method not implemented.')
-  }
-
-  tactic (): void {
     throw new Error('Method not implemented.')
   }
 }

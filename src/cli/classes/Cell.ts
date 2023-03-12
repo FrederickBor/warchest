@@ -1,3 +1,5 @@
+import { CONTROL_POINT_SYMBOL } from '../../consts'
+import type Player from './Player'
 import { type Unit } from './Units/Unit'
 
 interface CellAttributes {
@@ -8,43 +10,53 @@ interface CellAttributes {
 export default class Cell {
   private symbol: string
   private controlPoint: boolean
-  private unit: Unit | null
+  private unit?: Unit
+  private controllerSymbol?: string
 
   constructor ({ symbol, controlPoint }: CellAttributes) {
     this.symbol = symbol
     this.controlPoint = controlPoint
-    this.unit = null
   }
 
   isEmpty (): boolean {
     return this.unit === null
   }
 
-  setUnit ({ unit }: { unit: Unit }): void {
+  getUnit (): Unit | undefined {
+    return this.unit
+  }
+
+  setUnit (unit: Unit): void {
     this.unit = unit
   }
 
   unsetUnit (): void {
-    this.unit = null
+    this.unit = undefined
   }
 
   isNeutralLocation (): boolean {
     return this.controlPoint
   }
 
-  setNeutralLocation ({ symbol }: { symbol: string }): void {
-    this.symbol = symbol
+  setNeutralLocation (controllerSymbol?: string): void {
+    this.symbol = CONTROL_POINT_SYMBOL
+    this.controllerSymbol = controllerSymbol
     this.controlPoint = true
   }
 
-  takeControlPoint (): void {
-    if (!this.controlPoint) throw new Error("Can't take control point that isn't a control point")
+  takeControlPoint (player: Player): void {
+    this.controllerSymbol = player.getFaction().symbol
+  }
 
-    // TODO: Add player symbol
-    this.symbol = 'W'
+  getControllerSymbol (): string | undefined {
+    return this.controllerSymbol
   }
 
   toString (): string {
-    return this.symbol
+    return this.unit
+      ? this.unit.getSymbol()
+      : this.controllerSymbol
+        ? this.controllerSymbol
+        : this.symbol
   }
 }

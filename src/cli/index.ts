@@ -236,7 +236,7 @@ async function main (): Promise<void> {
 
   console.log(colors.inverse(' GAME SCOREBOARD '))
   scoreboard.getScoreboard().forEach((score) => {
-    console.log(colors.inverse(`${score.playerName} · ${score.victories} · ${score.date}`))
+    console.log(colors.inverse(` ${score.playerName} · ${score.victories} · ${score.date} `))
   })
 
   const confirmPlay = await confirm({
@@ -331,7 +331,7 @@ async function main (): Promise<void> {
   if (winner !== null) {
     console.log(`The winner is: ${winner.getName()}`)
     const date = new Date()
-    const formattedDate = `${date.getDate().toString().padStart(2, '0')}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getFullYear()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`
+    const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`
     scoreboardItem = {
       playerName: winner?.getName(),
       victories: 1,

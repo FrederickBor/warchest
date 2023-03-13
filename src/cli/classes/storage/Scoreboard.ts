@@ -1,5 +1,4 @@
 import * as fs from 'fs'
-import path from 'path'
 
 export interface ScoreboardItem {
   playerName: string
@@ -11,7 +10,7 @@ export default class Scoreboard {
   private readonly databasePath: string
 
   constructor (databasePath?: string) {
-    this.databasePath = databasePath ?? path.join(__dirname, 'database.json')
+    this.databasePath = databasePath ?? 'database.json'
   }
 
   getScoreboard (): ScoreboardItem[] {

@@ -141,7 +141,7 @@ export default class Game {
   }
 
   public controlZone (row: string, col: number, symbol: string): void {
-    if (this.board.isControlZone(row, col, this.currentPlayer)) {
+    if (this.board.isControlZone(row, col)) {
       const cell = this.board.getCell(row, col)
       if (cell.getControllerSymbol() === this.currentPlayer.getFaction().symbol) {
         throw new Error('You already control this zone')

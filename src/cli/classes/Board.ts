@@ -94,7 +94,7 @@ export default class Board {
     }
   }
 
-  public isControlZone (row: string, col: number, player: Player): boolean {
+  public isControlZone (row: string, col: number): boolean {
     const xIndex = row.charCodeAt(0) - 97
 
     if (this.isNotValidCell(xIndex, col)) {
